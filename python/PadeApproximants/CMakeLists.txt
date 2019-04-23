@@ -1,6 +1,6 @@
 # Build the python module
-add_cpp2py_module(toto_module)
-target_link_libraries(toto_module PadeApproximant_c)
+add_cpp2py_module(pade_approximants)
+target_link_libraries(pade_approximants PadeApproximants_c)
 
 # Configure the version
 configure_file(version.py.in version.py)
@@ -13,6 +13,6 @@ foreach(file ${python_sources})
 endforeach()
 
 # Install python module to proper location
-set(PYTHON_LIB_DEST ${TRIQS_PYTHON_LIB_DEST_ROOT}/PadeApproximant)
-install(TARGETS toto_module DESTINATION ${PYTHON_LIB_DEST})
+set(PYTHON_LIB_DEST ${TRIQS_PYTHON_LIB_DEST_ROOT}/PadeApproximants)
+install(TARGETS pade_approximants DESTINATION ${PYTHON_LIB_DEST})
 install(FILES ${python_sources} ${CMAKE_CURRENT_BINARY_DIR}/version.py DESTINATION ${PYTHON_LIB_DEST})

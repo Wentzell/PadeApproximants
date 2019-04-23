@@ -1,4 +1,4 @@
-def projectName = "PadeApproximant" /* set to app/repo name */
+def projectName = "PadeApproximants" /* set to app/repo name */
 
 /* which platform to build documentation on */
 def documentationPlatform = "ubuntu-clang"
@@ -6,7 +6,7 @@ def documentationPlatform = "ubuntu-clang"
 def triqsBranch = env.CHANGE_TARGET ?: env.BRANCH_NAME
 def triqsProject = '/TRIQS/triqs/' + triqsBranch.replaceAll('/', '%2F')
 /* whether to publish the results (disabled for template project) */
-def publish = !env.BRANCH_NAME.startsWith("PR-") && projectName != "PadeApproximant"
+def publish = !env.BRANCH_NAME.startsWith("PR-") && projectName != "PadeApproximants"
 
 properties([
   disableConcurrentBuilds(),

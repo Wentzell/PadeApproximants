@@ -19,9 +19,9 @@ extensions = ['sphinx.ext.autodoc',
 
 source_suffix = '.rst'
 
-project = u'PADEAPPROXIMANT - An example triqs application'
+project = u'PADEAPPROXIMANTS - An example triqs application'
 copyright = u'2018 - The TRIQS Developers'
-version = '@PADEAPPROXIMANT_VERSION@'
+version = '@PADEAPPROXIMANTS_VERSION@'
 
 mathjax_path = "@TRIQS_MATHJAX_PATH@/MathJax.js?config=default"
 templates_path = ['@CMAKE_SOURCE_DIR@/doc/_templates']
@@ -29,15 +29,15 @@ templates_path = ['@CMAKE_SOURCE_DIR@/doc/_templates']
 html_theme = 'triqs'
 html_theme_path = ['@TRIQS_THEMES_PATH@']
 html_show_sphinx = False
-html_context = {'header_title': 'PadeApproximant',
+html_context = {'header_title': 'PadeApproximants',
                 'header_subtitle': 'An example application using cpp2py and triqs',
                 'header_links': [['Install', 'install'],
                                  ['Documentation', 'documentation'],
                                  ['Issues', 'issues'],
-                                 ['About PadeApproximant', 'about']]}
+                                 ['About PadeApproximants', 'about']]}
 html_static_path = ['@CMAKE_SOURCE_DIR@/doc/_static']
 html_sidebars = {'index': ['sideb.html', 'searchbox.html']}
 
-htmlhelp_basename = 'PADEAPPROXIMANTdoc'
+htmlhelp_basename = 'PADEAPPROXIMANTSdoc'
 
 intersphinx_mapping = {'python': ('http://docs.python.org/2.7', None), 'triqslibs': ('https://triqs.github.io/triqs/master', None)}

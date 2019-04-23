@@ -1,10 +1,10 @@
-configure_file(PadeApproximant-config.cmake.in PadeApproximant-config.cmake @ONLY)
-configure_file(PadeApproximant-config-version.cmake.in PadeApproximant-config-version.cmake @ONLY)
+configure_file(PadeApproximants-config.cmake.in PadeApproximants-config.cmake @ONLY)
+configure_file(PadeApproximants-config-version.cmake.in PadeApproximants-config-version.cmake @ONLY)
 install(
   FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/PadeApproximant-config.cmake
-    ${CMAKE_CURRENT_BINARY_DIR}/PadeApproximant-config-version.cmake
-  DESTINATION lib/cmake/PadeApproximant
+    ${CMAKE_CURRENT_BINARY_DIR}/PadeApproximants-config.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/PadeApproximants-config-version.cmake
+  DESTINATION lib/cmake/PadeApproximants
 )
 
-install(EXPORT PadeApproximant-targets DESTINATION lib/cmake/PadeApproximant)
+install(EXPORT PadeApproximants-targets DESTINATION lib/cmake/PadeApproximants)

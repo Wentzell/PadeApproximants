@@ -1,23 +1,23 @@
-file(GLOB_RECURSE sources *.cpp)
-add_library(PadeApproximant_c ${sources})
+#file(GLOB_RECURSE sources *.cpp)
+add_library(PadeApproximants_c INTERFACE)
 
 # Link against dependencies
-target_link_libraries(PadeApproximant_c PUBLIC triqs)
+target_link_libraries(PadeApproximants_c INTERFACE triqs)
 
 # Configure compilation
-target_compile_options(PadeApproximant_c PUBLIC -std=c++17 -fPIC)
-target_include_directories(PadeApproximant_c PUBLIC $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/c++>)
-target_compile_definitions(PadeApproximant_c PUBLIC
-				PADEAPPROXIMANT_GIT_HASH=${PADEAPPROXIMANT_GIT_HASH}
+target_compile_options(PadeApproximants_c INTERFACE -std=c++17 -fPIC)
+target_include_directories(PadeApproximants_c INTERFACE $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/c++>)
+target_compile_definitions(PadeApproximants_c INTERFACE
+				PADEAPPROXIMANTS_GIT_HASH=${PADEAPPROXIMANTS_GIT_HASH}
 				TRIQS_GIT_HASH=${TRIQS_GIT_HASH}
-				$<$<CONFIG:Debug>:PADEAPPROXIMANT_DEBUG>
+				$<$<CONFIG:Debug>:PADEAPPROXIMANTS_DEBUG>
 				$<$<CONFIG:Debug>:TRIQS_DEBUG>
 				$<$<CONFIG:Debug>:TRIQS_ARRAYS_ENFORCE_BOUNDCHECK>
 			  )
 
 # Install library and headers
-install(TARGETS PadeApproximant_c EXPORT PadeApproximant-targets DESTINATION lib)
-install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} DESTINATION include FILES_MATCHING PATTERN "*.hpp" PATTERN "*.h")
+install(TARGETS PadeApproximants_c EXPORT PadeApproximants-targets DESTINATION lib)
+#install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} DESTINATION include FILES_MATCHING PATTERN "*.hpp" PATTERN "*.h")
 
 
 # ========= Static Analyzer Checks ==========
@@ -32,7 +32,7 @@ if(ANALYZE_SOURCES)
   # Run clang-tidy if found
   if(CLANG_TIDY_EXECUTABLE)
     message(STATUS "clang-tidy found: ${CLANG_TIDY_EXECUTABLE}")
-    set_target_properties(PadeApproximant_c PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_EXECUTABLE}")
+    set_target_properties(PadeApproximants_c PROPERTIES CXX_CLANG_TIDY "${CLANG_TIDY_EXECUTABLE}")
   else()
     message(STATUS "clang-tidy not found in $PATH. Please consider installing clang-tidy for additional checks!")
   endif()
@@ -41,7 +41,7 @@ if(ANALYZE_SOURCES)
   if(CPPCHECK_EXECUTABLE)
     message(STATUS "cppcheck found: ${CPPCHECK_EXECUTABLE}")
     add_custom_command(
-	TARGET PadeApproximant_c
+	TARGET PadeApproximants_c
 	COMMAND ${CPPCHECK_EXECUTABLE}
 	  --enable=warning,style,performance,portability
 	  --std=c++14
@@ -64,8 +64,8 @@ set(sanitizers "")
 option(ASAN OFF "Compile library and executables with LLVM Address Sanitizer")
 if(ASAN)
   list(APPEND sanitizers asan)
-  target_compile_options(PadeApproximant_c PRIVATE -fsanitize=address -fno-omit-frame-pointer -ggdb3)
-  target_link_libraries(PadeApproximant_c INTERFACE "-fsanitize=address -fno-omit-frame-pointer")
+  target_compile_options(PadeApproximants_c INTERFACE -fsanitize=address -fno-omit-frame-pointer -ggdb3)
+  target_link_libraries(PadeApproximants_c INTERFACE "-fsanitize=address -fno-omit-frame-pointer")
   if(NOT DEFINED ENV{ASAN_OPTIONS})
     message(WARNING "ASAN_OPTIONS is not set. Consider setting ASAN_OPTIONS=symbolize=1:detect_leaks=0 when running tests")
   endif()
@@ -75,8 +75,8 @@ endif()
 option(UBSAN OFF "Compile library and executables with LLVM Undefined Behavior Sanitizer")
 if(UBSAN)
   list(APPEND sanitizers ubsan)
-  target_compile_options(PadeApproximant_c PUBLIC -fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-omit-frame-pointer -ggdb3)
-  target_link_libraries(PadeApproximant_c INTERFACE "-fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-omit-frame-pointer")
+  target_compile_options(PadeApproximants_c INTERFACE -fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-omit-frame-pointer -ggdb3)
+  target_link_libraries(PadeApproximants_c INTERFACE "-fsanitize=undefined -fsanitize=float-divide-by-zero -fsanitize=float-cast-overflow -fno-omit-frame-pointer")
   if(NOT DEFINED ENV{UBSAN_OPTIONS})
     message(WARNING "UBSAN_OPTIONS is not set. Consider setting UBSAN_OPTIONS=symbolize=1:print_stacktrace=1:halt_on_error=1 when running tests")
   endif()
@@ -85,6 +85,6 @@ endif()
 if(sanitizers)
   find_package(sanitizer REQUIRED ${sanitizers})
   if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
-    target_link_libraries(PadeApproximant_c INTERFACE "-fuse-ld=gold")
+    target_link_libraries(PadeApproximants_c INTERFACE "-fuse-ld=gold")
   endif()
 endif()

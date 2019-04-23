@@ -1,11 +1,11 @@
 .. _welcome:
 
-PadeApproximant
+PadeApproximants
 =========
 
-.. sidebar:: PadeApproximant 2.2
+.. sidebar:: PadeApproximants 2.2
 
-   This is the homepage PadeApproximant Version 2.2
+   This is the homepage PadeApproximants Version 2.2
    For changes see, Cf :ref:`changelog page <changelog>`
 
 An example application using cpp2py and triqs.

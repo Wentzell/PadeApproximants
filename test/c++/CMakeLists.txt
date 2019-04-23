@@ -5,12 +5,12 @@ foreach(file ${all_h5_ref_files})
 endforeach()
 
 # List of all tests
-set(all_tests toto)
+set(all_tests)
 
 foreach(test ${all_tests})
   get_filename_component(test_name ${test} NAME_WE)
   add_executable(${test_name} ${test})
-  target_link_libraries(${test_name} PadeApproximant_c triqs::gtest)
+  target_link_libraries(${test_name} PadeApproximants_c triqs::gtest)
   add_test(${test_name} ${test_name})
   # Run clang-tidy if found
   if(CLANG_TIDY_EXECUTABLE)

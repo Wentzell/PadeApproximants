@@ -1,6 +1,6 @@
 # Start configuration
 cmake_minimum_required(VERSION 3.0.2 FATAL_ERROR)
-project(PadeApproximant CXX)
+project(PadeApproximants CXX)
 if(POLICY CMP0074)
   cmake_policy(SET CMP0074 NEW)
 endif()
@@ -36,17 +36,17 @@ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT OR (NOT IS_ABSOLUTE ${CMAKE_INSTA
 endif()
 message(STATUS "-------- CMAKE_INSTALL_PREFIX: ${CMAKE_INSTALL_PREFIX} --------")
 
-# Define the PadeApproximant version numbers and get the git hash
-set(PADEAPPROXIMANT_VERSION_MAJOR 2)
-set(PADEAPPROXIMANT_VERSION_MINOR 2)
-set(PADEAPPROXIMANT_VERSION_PATCH 0)
-set(PADEAPPROXIMANT_VERSION ${PADEAPPROXIMANT_VERSION_MAJOR}.${PADEAPPROXIMANT_VERSION_MINOR}.${PADEAPPROXIMANT_VERSION_PATCH})
-triqs_get_git_hash_of_source_dir(PADEAPPROXIMANT_GIT_HASH)
-message(STATUS "PadeApproximant version : ${PADEAPPROXIMANT_VERSION}")
-message(STATUS "Git hash: ${PADEAPPROXIMANT_GIT_HASH}")
+# Define the PadeApproximants version numbers and get the git hash
+set(PADEAPPROXIMANTS_VERSION_MAJOR 2)
+set(PADEAPPROXIMANTS_VERSION_MINOR 2)
+set(PADEAPPROXIMANTS_VERSION_PATCH 0)
+set(PADEAPPROXIMANTS_VERSION ${PADEAPPROXIMANTS_VERSION_MAJOR}.${PADEAPPROXIMANTS_VERSION_MINOR}.${PADEAPPROXIMANTS_VERSION_PATCH})
+triqs_get_git_hash_of_source_dir(PADEAPPROXIMANTS_GIT_HASH)
+message(STATUS "PadeApproximants version : ${PADEAPPROXIMANTS_VERSION}")
+message(STATUS "Git hash: ${PADEAPPROXIMANTS_GIT_HASH}")
 
-# Build and install the PadeApproximant library
-add_subdirectory(c++/PadeApproximant)
+# Build and install the PadeApproximants Interface library
+add_subdirectory(c++/triqs/utility)
 
 # Tests
 option(Build_Tests "Build tests" ON)
@@ -57,7 +57,7 @@ endif()
 
 if(TRIQS_WITH_PYTHON_SUPPORT)
   # Python interface
-  add_subdirectory(python/PadeApproximant)
+  add_subdirectory(python/PadeApproximants)
 
   # Build the documentation
   option(Build_Documentation "Build documentation" OFF)
@@ -83,8 +83,8 @@ if(BUILD_DEBIAN_PACKAGE)
     message(FATAL_ERROR "CMAKE_INSTALL_PREFIX must be /usr for packaging")
   endif()
   SET(CPACK_GENERATOR "DEB")
-  SET(CPACK_PACKAGE_VERSION ${PADEAPPROXIMANT_VERSION})
-  SET(CPACK_PACKAGE_CONTACT "https://github.com/TRIQS/PadeApproximant")
+  SET(CPACK_PACKAGE_VERSION ${PADEAPPROXIMANTS_VERSION})
+  SET(CPACK_PACKAGE_CONTACT "https://github.com/TRIQS/PadeApproximants")
   EXECUTE_PROCESS(COMMAND dpkg --print-architecture OUTPUT_VARIABLE CMAKE_DEBIAN_PACKAGE_ARCHITECTURE OUTPUT_STRIP_TRAILING_WHITESPACE)
   SET(CPACK_DEBIAN_PACKAGE_DEPENDS "triqs (>= 2.2)")
   SET(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)

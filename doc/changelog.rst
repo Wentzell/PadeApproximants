@@ -3,6 +3,6 @@
 Changelog
 =========
 
-This document describes the main changes in PADEAPPROXIMANT.
+This document describes the main changes in PADEAPPROXIMANTS.
 
 .. include:: ChangeLog.md

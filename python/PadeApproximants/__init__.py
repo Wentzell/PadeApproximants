@@ -3,7 +3,7 @@
 # TRIQS: a Toolbox for Research in Interacting Quantum Systems
 #
 # Copyright (C) 2016-2018, N. Wentzell
-# Copyright (C) 2018-2019, Simons Foundation
+# Copyright (C) 2018-2019, The Simons Foundation
 #   author: N. Wentzell
 #
 # TRIQS is free software: you can redistribute it and/or modify it under the
@@ -21,12 +21,10 @@
 #
 ################################################################################
 
-version = "@PADEAPPROXIMANT_VERSION@"
-triqs_hash = "@TRIQS_GIT_HASH@"
-PadeApproximant_hash = "@PADEAPPROXIMANT_GIT_HASH@"
+r"""
+DOC
 
-def show_version():
-  print "\nYou are using PadeApproximant version %s\n"%version
+"""
+from pade_approximants import PadeApproximant
 
-def show_git_hash():
-  print "\nYou are using PadeApproximant git hash %s based on triqs git hash %s\n"%(PadeApproximant_hash, triqs_hash)
+__all__ = ['PadeApproximant']

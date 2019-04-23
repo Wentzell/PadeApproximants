@@ -1,13 +1,13 @@
 #%Module1.0
 #
-# To be installed as ${MODULEPATH}/PadeApproximant/@PADEAPPROXIMANT_VERSION@
+# To be installed as ${MODULEPATH}/PadeApproximants/@PADEAPPROXIMANTS_VERSION@
 
-set     name        PadeApproximant
-set     version     @PADEAPPROXIMANT_VERSION@
+set     name        PadeApproximants
+set     version     @PADEAPPROXIMANTS_VERSION@
 set     root        @CMAKE_INSTALL_PREFIX@
-set     git_hash    @PADEAPPROXIMANT_GIT_HASH@
+set     git_hash    @PADEAPPROXIMANTS_GIT_HASH@
 
-set     url         "https://github.com/TRIQS/PadeApproximant"
+set     url         "https://github.com/TRIQS/PadeApproximants"
 set     description "An example application using cpp2py and triqs."
 
 module-whatis   "$description"
@@ -24,16 +24,16 @@ proc ModulesHelp { } {
 # is installed under a different name in your setup.
 prereq triqs/@TRIQS_VERSION@
 
-# Only one version of PadeApproximant can be loaded at a time
+# Only one version of PadeApproximants can be loaded at a time
 conflict $name
 
-setenv          PADEAPPROXIMANT_ROOT      $root
-setenv          PADEAPPROXIMANT_VERSION   $version
-setenv          PADEAPPROXIMANT_GIT_HASH  $git_hash
+setenv          PADEAPPROXIMANTS_ROOT      $root
+setenv          PADEAPPROXIMANTS_VERSION   $version
+setenv          PADEAPPROXIMANTS_GIT_HASH  $git_hash
 
 prepend-path    PATH                $root/bin
 prepend-path    CPLUS_INCLUDE_PATH  $root/include
 prepend-path    LIBRARY_PATH        $root/lib
 prepend-path    LD_LIBRARY_PATH     $root/lib
 prepend-path    PYTHONPATH          $root/@TRIQS_PYTHON_LIB_DEST_ROOT@
-prepend-path    CMAKE_PREFIX_PATH   $root/lib/cmake/PadeApproximant
+prepend-path    CMAKE_PREFIX_PATH   $root/lib/cmake/PadeApproximants
