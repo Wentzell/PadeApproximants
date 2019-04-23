@@ -15,13 +15,13 @@ Prerequisite
 Installation steps
 ------------------
 
-#. Download the source code of the latest stable version by cloning the ``TRIQS/app4triqs`` repository from GitHub::
+#. Download the source code of the latest stable version by cloning the ``TRIQS/PadeApproximant`` repository from GitHub::
 
-     $ git clone https://github.com/TRIQS/app4triqs app4triqs.src
+     $ git clone https://github.com/TRIQS/PadeApproximant PadeApproximant.src
 
 #. Create and move to a new directory where you will compile the code::
 
-     $ mkdir app4triqs.build && cd app4triqs.build
+     $ mkdir PadeApproximant.build && cd PadeApproximant.build
 
 #. Ensure that your shell contains the TRIQS environment variables by sourcing the ``triqsvars.sh`` file from your TRIQS installation::
 
@@ -29,7 +29,7 @@ Installation steps
 
 #. In the build directory call cmake, including any additional custom CMake options, see below::
 
-     $ cmake ../app4triqs.src
+     $ cmake ../PadeApproximant.src
 
 #. Compile the code, run the tests and install the application::
 
@@ -47,7 +47,7 @@ of the application and TRIQS agree.
 If you want to use a particular version of the application, go into the directory with the sources
 and look at all available versions::
 
-     $ cd app4triqs.src && git tag
+     $ cd PadeApproximant.src && git tag
 
 Checkout the version of the code that you want::
 
@@ -58,14 +58,14 @@ Then follow the steps 2 to 4 described above to compile the code.
 Custom CMake options
 --------------------
 
-Functionality of ``app4triqs`` can be tweaked using extra compile-time options passed to CMake::
+Functionality of ``PadeApproximant`` can be tweaked using extra compile-time options passed to CMake::
 
-    cmake ../app4triqs.src -DOPTION1=value1 -DOPTION2=value2 ... ../app4triqs.src
+    cmake ../PadeApproximant.src -DOPTION1=value1 -DOPTION2=value2 ... ../PadeApproximant.src
 
 +-----------------------------------------------------------------+-----------------------------------------------+
 | Options                                                         | Syntax                                        |
 +=================================================================+===============================================+
-| Specify an installation path other than path_to_triqs           | -DCMAKE_INSTALL_PREFIX=path_to_app4triqs      |
+| Specify an installation path other than path_to_triqs           | -DCMAKE_INSTALL_PREFIX=path_to_PadeApproximant      |
 +-----------------------------------------------------------------+-----------------------------------------------+
 | Build in Debugging Mode                                         | -DCMAKE_BUILD_TYPE=Debug                      |
 +-----------------------------------------------------------------+-----------------------------------------------+

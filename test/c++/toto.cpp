@@ -1,7 +1,7 @@
 #include <triqs/test_tools/gfs.hpp>
-#include <app4triqs/toto.hpp>
+#include <PadeApproximant/toto.hpp>
 
-using namespace app4triqs;
+using namespace PadeApproximant;
 
 TEST(Toto, Add) { // NOLINT
 

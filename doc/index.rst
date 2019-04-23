@@ -1,11 +1,11 @@
 .. _welcome:
 
-app4triqs
+PadeApproximant
 =========
 
-.. sidebar:: app4triqs 2.2
+.. sidebar:: PadeApproximant 2.2
 
-   This is the homepage app4triqs Version 2.2
+   This is the homepage PadeApproximant Version 2.2
    For changes see, Cf :ref:`changelog page <changelog>`
 
 An example application using cpp2py and triqs.
